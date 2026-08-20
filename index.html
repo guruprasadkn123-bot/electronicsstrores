@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refrigerator Buying Guide: Capacity, Star Rating & Compressors — Indevi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10161A; --surface:#171F24; --surface-hi:#1D262C; --line:#2A353B;
+    --paper:#ECE8E0; --muted:#8B9599; --copper:#C17F4C; --copper-dim:#8C5D38;
+    --teal:#4F8C82; --amber:#E0A458;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--copper);color:var(--ink);}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 32px;}
+
+  .trace{height:24px;width:100%;overflow:hidden;}
+  .trace svg{width:100%;height:100%;display:block;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(16,22,26,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .nav{max-width:1180px;margin:0 auto;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;}
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px rgba(224,164,88,0.18);}
+  .navlist{display:flex;gap:36px;list-style:none;margin:0;padding:0;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);}
+  .navlist a:hover{color:var(--paper);}
+  .navlist a.active{color:var(--paper);border-bottom:1px solid var(--copper);padding-bottom:4px;}
+  @media (max-width:720px){.navlist{display:none;}}
+
+  .breadcrumb{padding:32px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
+  .breadcrumb a:hover{color:var(--copper);}
+
+  .art-head{padding:20px 0 36px;border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--teal);}
+  .art-head h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5vw,46px);line-height:1.1;margin:0 0 20px;letter-spacing:-0.01em;}
+  .art-meta{display:flex;gap:22px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);}
+  .art-meta span::before{content:"— ";opacity:.5;}
+  .art-meta span:first-child::before{content:"";}
+
+  .lede{font-size:19px;color:var(--paper);margin:32px 0 8px;line-height:1.6;}
+  article h2{font-family:'Space Grotesk',sans-serif;font-size:26px;margin:44px 0 16px;}
+  article h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin:30px 0 12px;color:var(--paper);}
+  article p{font-size:16px;color:#D8D3C8;margin:0 0 18px;}
+  article ul, article ol{color:#D8D3C8;font-size:16px;padding-left:20px;margin:0 0 20px;}
+  article li{margin-bottom:8px;}
+  article strong{color:var(--paper);}
+
+  .callout{
+    border:1px solid var(--line); border-left:2px solid var(--copper);
+    background:var(--surface); padding:20px 24px; margin:28px 0; position:relative;
+  }
+  .callout .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;display:block;}
+  .callout p{margin:0;font-size:15px;color:var(--paper);}
+
+  .spec-table{width:100%;border-collapse:collapse;margin:24px 0 32px;font-size:14.5px;}
+  .spec-table th, .spec-table td{border:1px solid var(--line);padding:12px 14px;text-align:left;}
+  .spec-table th{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:var(--surface);}
+  .spec-table td{color:#D8D3C8;}
+
+  .tags{display:flex;gap:10px;flex-wrap:wrap;margin:40px 0;}
+  .tags a{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:999px;}
+  .tags a:hover{color:var(--paper);border-color:var(--copper-dim);}
+
+  .author-box{display:flex;gap:16px;align-items:center;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:40px 0;}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--surface-hi);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--copper);flex-shrink:0;}
+  .author-box .name{font-weight:600;font-size:14.5px;}
+  .author-box .role{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
+
+  .next-post{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 0 60px;flex-wrap:wrap;}
+  .next-post a{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--copper);display:flex;align-items:center;gap:8px;}
+  .next-post a:hover{color:var(--amber);}
+
+  footer{border-top:1px solid var(--line);padding:32px 0;}
+  .foot-bottom{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
+  .foot-bottom .links{display:flex;gap:22px;}
+  .foot-bottom a:hover{color:var(--paper);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span class="dot"></span>INDEVI</div>
+    <ul class="navlist">
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="index.html">Repairs</a></li>
+      <li><a href="index.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="trace" aria-hidden="true">
+  <svg viewBox="0 0 1180 24" preserveAspectRatio="none">
+    <path d="M0,12 H420 L440,2 H560 L580,12 H900 L920,22 H1180" fill="none" stroke="#2A353B" stroke-width="1"/>
+    <circle cx="440" cy="2" r="2.5" fill="#4F8C82"/>
+    <circle cx="920" cy="22" r="2.5" fill="#C17F4C"/>
+  </svg>
+</div>
+
+<main class="wrap">
+  <div class="breadcrumb"><a href="index.html">Blog</a> / Guides / Refrigerators</div>
+
+  <div class="art-head">
+    <div class="eyebrow">Guide</div>
+    <h1>Refrigerator Buying Guide: Capacity, Star Rating, and Why the Compressor Matters Most</h1>
+    <div class="art-meta">
+      <span>Priya N.</span>
+      <span>2026.08.20</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+
+  <article>
+    <p class="lede">A refrigerator runs every hour of every day for a decade or more, which makes it the one appliance where a slightly higher upfront price for efficiency almost always wins over the machine's lifetime. The three numbers worth actually comparing are capacity, star rating, and compressor type — everything else on the spec sheet is secondary.</p>
+
+    <h2>Capacity: measured in litres, sized to people, not to the kitchen</h2>
+    <p>Refrigerator capacity is listed in total litres across the fresh food and freezer compartments. As a starting point:</p>
+
+    <table class="spec-table">
+      <thead>
+        <tr><th>Household size</th><th>Suggested capacity</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1–2 people</td><td>180–300 L</td></tr>
+        <tr><td>3–4 people</td><td>300–500 L</td></tr>
+        <tr><td>5+ people, or bulk grocery shopping</td><td>500 L+</td></tr>
+      </tbody>
+    </table>
+
+    <p>It's worth adding roughly 50–100L of headroom above your current needs — grocery habits tend to shift toward more fresh produce and bulk buying over a fridge's lifetime, and there's no upgrading a compartment once it's built.</p>
+
+    <h2>Star rating: what it's actually measuring</h2>
+    <p>The star rating on the door reflects energy efficiency relative to other units of similar capacity, not raw energy use — a 5-star large fridge can still use more electricity in absolute terms than a 3-star small one. What the rating tells you is how efficiently that specific size class converts electricity into cooling, which is the number that determines your running cost against comparable models.</p>
+
+    <div class="callout">
+      <span class="tag">What to actually compare</span>
+      <p>Compare star ratings only between refrigerators of similar capacity. A 5-star 500L fridge and a 5-star 250L fridge aren't telling you the same thing about your electricity bill.</p>
+    </div>
+
+    <h2>Compressor type: the part that decides the lifetime cost</h2>
+    <p>This is the single biggest factor in both running cost and noise, and it's often buried at the bottom of the spec sheet.</p>
+
+    <h3>Conventional compressors</h3>
+    <p>Run at a fixed speed — either fully on or fully off. They're cheaper to manufacture, which keeps upfront price down, but the constant on/off cycling uses more electricity over time and tends to be noisier.</p>
+
+    <h3>Inverter compressors</h3>
+    <p>Adjust speed continuously to match the cooling load rather than switching on and off. This cuts electricity use, reduces temperature fluctuation inside the fridge — which helps food last longer — and runs noticeably quieter. Inverter models typically carry a longer compressor warranty as well, often 10 years versus the standard 1–2.</p>
+
+    <p>For a refrigerator that runs continuously for years, the inverter premium is usually one of the better appliance upgrades to pay for upfront.</p>
+
+    <h2>Frost-free vs. direct cool</h2>
+    <ul>
+      <li><strong>Direct cool</strong> — simpler mechanism, lower upfront cost, but requires manual defrosting and cools less evenly across shelves. Common in smaller single-door models.</li>
+      <li><strong>Frost-free</strong> — circulates cold air with a fan and defrosts automatically, giving more even cooling and no manual upkeep. Standard on double-door and larger models, and worth the small premium if manual defrosting isn't something you want to keep up with.</li>
+    </ul>
+
+    <h2>Before you buy: the four-question check</h2>
+    <ol>
+      <li>Does the capacity leave headroom for how your grocery habits might shift, not just how they are today?</li>
+      <li>Am I comparing star ratings against fridges of similar litre capacity, not across sizes?</li>
+      <li>Is it an inverter compressor, and does the warranty reflect that (longer compressor coverage)?</li>
+      <li>Direct cool or frost-free — am I actually willing to defrost a freezer manually?</li>
+    </ol>
+
+    <p>Get the compressor and capacity right and the rest of the decision — door style, finish, shelf layout — comes down to preference rather than anything that affects your electricity bill for the next ten years.</p>
+  </article>
+
+  <div class="tags">
+    <a href="#">Refrigerators</a>
+    <a href="#">Buying Guide</a>
+    <a href="#">Home Appliances</a>
+    <a href="#">Energy Efficiency</a>
+  </div>
+
+  <div class="author-box">
+    <div class="avatar">PN</div>
+    <div>
+      <div class="name">Priya N.</div>
+      <div class="role mono">Product Specialist, Indevi</div>
+    </div>
+  </div>
+
+  <div class="next-post">
+    <a href="washing-machines.html">← Washing machine buying guide</a>
+    <a href="air-coolers.html">Air cooler buying guide →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-bottom">
+    <span>© 2026 Indevi Electronics</span>
+    <div class="links">
+      <a href="index.html">Blog</a>
+      <a href="#">Shop</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
